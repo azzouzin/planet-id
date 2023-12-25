@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:plantid/Controller/controller.dart';
 import 'package:plantid/Views/Compenants/constants.dart';
 import 'package:plantid/Views/Farm/farming_page.dart';
+import 'package:plantid/Views/Farm/store_page.dart';
 import 'package:plantid/Views/Farm/study_page.dart';
 
 import '../Weather/homePage.dart';
@@ -29,8 +30,10 @@ class _MyHomePageState extends State<MyHomePage> {
         return controller.index == 0
             ? FarmingPage()
             : controller.index == 2
-                ? HomePage()
-                : StudyPage();
+                ? StorePage()
+                : controller.index == 3
+                    ? HomePage()
+                    : StudyPage();
       }),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: index,
@@ -40,10 +43,10 @@ class _MyHomePageState extends State<MyHomePage> {
             });
             controller.changeindex(value);
           },
-
-          // elevation: 20,
+          elevation: 10,
+          unselectedItemColor: Colors.grey,
           selectedItemColor: green,
-          // backgroundColor: Color.fromARGB(255, 216, 218, 216),
+          backgroundColor: Color.fromARGB(255, 216, 218, 216),
           items: const [
             BottomNavigationBarItem(
                 icon: Icon(
@@ -52,10 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 label: 'مزارع'),
             BottomNavigationBarItem(icon: Icon(Icons.book), label: 'دراسة'),
             BottomNavigationBarItem(
+                icon: Icon(Icons.store_outlined), label: 'متجر'),
+            BottomNavigationBarItem(
                 icon: Icon(
                   Icons.sunny,
                 ),
-                label: 'الطقس'),
+                label: 'المناخ'),
           ]),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 

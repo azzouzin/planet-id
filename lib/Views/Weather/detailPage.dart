@@ -7,7 +7,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff030317),
+      backgroundColor: const Color(0xff030317),
       body: Column(
         children: [TomorrowWeather(), SevenDays()],
       ),
@@ -19,7 +19,7 @@ class TomorrowWeather extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color(0xff00A1FF),
         borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(60), bottomRight: Radius.circular(60)),
@@ -27,7 +27,8 @@ class TomorrowWeather extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 50, right: 30, left: 30, bottom: 20),
+            padding:
+                const EdgeInsets.only(top: 50, right: 30, left: 30, bottom: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -35,11 +36,11 @@ class TomorrowWeather extends StatelessWidget {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_back_ios,
                       color: Colors.white,
                     )),
-                Row(
+                const Row(
                   children: [
                     Icon(
                       Icons.calendar_today,
@@ -52,12 +53,12 @@ class TomorrowWeather extends StatelessWidget {
                     )
                   ],
                 ),
-                Icon(Icons.more_vert, color: Colors.white)
+                const Icon(Icons.more_vert, color: Colors.white)
               ],
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -72,7 +73,7 @@ class TomorrowWeather extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    const Text(
                       "غدا",
                       style: TextStyle(fontSize: 30, height: 0.1),
                     ),
@@ -83,7 +84,7 @@ class TomorrowWeather extends StatelessWidget {
                         children: [
                           Text(
                             tomorrowTemp.max.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 100, fontWeight: FontWeight.bold),
                           ),
                           Text(
@@ -96,12 +97,12 @@ class TomorrowWeather extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
                       " " + tomorrowTemp.name!,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 15,
                       ),
                     )
@@ -111,15 +112,15 @@ class TomorrowWeather extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               bottom: 20,
               right: 50,
               left: 50,
             ),
             child: Column(
               children: [
-                Divider(color: Colors.white),
-                SizedBox(
+                const Divider(color: Colors.white),
+                const SizedBox(
                   height: 10,
                 ),
                 ExtraWeather(tomorrowTemp)
@@ -140,11 +141,12 @@ class SevenDays extends StatelessWidget {
           itemCount: sevenDay.length,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
-                padding: EdgeInsets.only(left: 20, right: 20, bottom: 25),
+                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(sevenDay[index].day!, style: TextStyle(fontSize: 20)),
+                    Text(sevenDay[index].day!,
+                        style: const TextStyle(fontSize: 20)),
                     Container(
                       width: 135,
                       child: Row(
@@ -154,10 +156,10 @@ class SevenDays extends StatelessWidget {
                             image: AssetImage(sevenDay[index]!.image!),
                             width: 40,
                           ),
-                          SizedBox(width: 15),
+                          const SizedBox(width: 15),
                           Text(
                             sevenDay[index].name!,
-                            style: TextStyle(fontSize: 20),
+                            style: const TextStyle(fontSize: 20),
                           )
                         ],
                       ),
@@ -166,14 +168,15 @@ class SevenDays extends StatelessWidget {
                       children: [
                         Text(
                           "+" + sevenDay[index].max.toString() + "\u00B0",
-                          style: TextStyle(fontSize: 20),
+                          style: const TextStyle(fontSize: 20),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         Text(
                           "+" + sevenDay[index].min.toString() + "\u00B0",
-                          style: TextStyle(fontSize: 20, color: Colors.grey),
+                          style:
+                              const TextStyle(fontSize: 20, color: Colors.grey),
                         ),
                       ],
                     )
