@@ -27,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: green,
         title: const Text(apptitle, style: TextStyle(color: Colors.white)),
         centerTitle: true,
+        leading: Container(),
         actions: [
           Image.asset("assets/logo.png", scale: 5),
         ],
