@@ -15,14 +15,23 @@ class _StorePageState extends State<StorePage> {
           child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          children: [storeItem()],
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "المتجر",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            storeItem('Red Apple', '1k , Percieg', '2000 DA', '')
+          ],
         ),
       )),
     );
   }
 
-  Container storeItem() {
-    return Container(
+  Widget storeItem(
+      String title, String descreption, String price, String image) {
+    return SizedBox(
       width: 173.32,
       height: 248.51,
       child: Stack(

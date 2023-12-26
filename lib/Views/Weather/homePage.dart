@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:plantid/Views/Compenants/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'dataset.dart';
 import 'detailPage.dart';
@@ -37,6 +39,20 @@ class CurrentWeather extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: green),
+              onPressed: () async {
+                final Uri smsLaunchUri = Uri(
+                  scheme: 'tel',
+                  path: '+213 779955929',
+                );
+                await launchUrl(smsLaunchUri);
+              },
+              child: Text(
+                "اتصل بالاستشاري حالا ",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

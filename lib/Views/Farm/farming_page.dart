@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:plantid/Views/Farm/notes_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../Compenants/constants.dart';
 import '../Compenants/my_button.dart';
@@ -13,27 +15,6 @@ class FarmingPage extends StatefulWidget {
 }
 
 class _FarmingPageState extends State<FarmingPage> {
-  List<String> crops = [
-    'فول',
-    'ايجاص',
-    'ليمون',
-    'اليقطين',
-    'الخس',
-    'الصفصفة',
-    'الشعير',
-    'الشعير\nالمستنبت'
-  ];
-
-  List<String> imgsOfCorps = [
-    'assets/fol.jpg',
-    'assets/ijas.jpg',
-    'assets/laymon.jpg',
-    'assets/yaktin.jpg',
-    'assets/khas.jpg',
-    'assets/safsafa.jpg',
-    'assets/chair.jpg',
-    'assets/mostnabat.jpg',
-  ];
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -69,79 +50,91 @@ class _FarmingPageState extends State<FarmingPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Container(
-                width: Get.width * 0.4,
-                height: Get.height * 0.15,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        blurRadius: 5,
-                        spreadRadius: 3)
-                  ],
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.amber,
-                ),
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    SizedBox(
-                      width: Get.width * 0.4,
-                      height: Get.height * 0.15,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(
-                          "assets/expert.jpg",
-                          fit: BoxFit.cover,
+              InkWell(
+                onTap: () async {
+                  final Uri smsLaunchUri = Uri(
+                    scheme: 'tel',
+                    path: '+213 779955929',
+                  );
+                  await launchUrl(smsLaunchUri);
+                },
+                child: Container(
+                  width: Get.width * 0.4,
+                  height: Get.height * 0.15,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          blurRadius: 5,
+                          spreadRadius: 3)
+                    ],
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.amber,
+                  ),
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      SizedBox(
+                        width: Get.width * 0.4,
+                        height: Get.height * 0.15,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            "assets/expert.jpg",
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                    ),
-                    const Text(
-                      "استشاري المحاصيل",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                width: Get.width * 0.4,
-                height: Get.height * 0.15,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        blurRadius: 5,
-                        spreadRadius: 3)
-                  ],
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.amber,
-                ),
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    SizedBox(
-                      width: Get.width * 0.4,
-                      height: Get.height * 0.15,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(
-                          "assets/note.jpg",
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    const Text(
-                      "المذكرة اليومية",
-                      style: TextStyle(
+                      const Text(
+                        "استشاري المحاصيل",
+                        style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
-                          fontSize: 20),
-                    ),
-                  ],
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () => Get.to(NotesPage()),
+                child: Container(
+                  width: Get.width * 0.4,
+                  height: Get.height * 0.15,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          blurRadius: 5,
+                          spreadRadius: 3)
+                    ],
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.amber,
+                  ),
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      SizedBox(
+                        width: Get.width * 0.4,
+                        height: Get.height * 0.15,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            "assets/note.jpg",
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        "المذكرة اليومية",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
