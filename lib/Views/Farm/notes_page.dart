@@ -14,6 +14,9 @@ class NotesPage extends StatelessWidget {
         backgroundColor: green,
         title: const Text(apptitle, style: TextStyle(color: Colors.white)),
         centerTitle: true,
+        actions: [
+          Image.asset("assets/logo.png", scale: 5),
+        ],
       ),
       body: SafeArea(
           child: Padding(

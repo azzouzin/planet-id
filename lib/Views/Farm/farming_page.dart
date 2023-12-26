@@ -1,11 +1,16 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:plantid/Views/Farm/call_page.dart';
 import 'package:plantid/Views/Farm/notes_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../Compenants/constants.dart';
 import '../Compenants/my_button.dart';
+import 'corn_page.dart';
+import 'tomato_page.dart';
 
 class FarmingPage extends StatefulWidget {
   const FarmingPage({super.key});
@@ -52,11 +57,8 @@ class _FarmingPageState extends State<FarmingPage> {
             children: [
               InkWell(
                 onTap: () async {
-                  final Uri smsLaunchUri = Uri(
-                    scheme: 'tel',
-                    path: '+213 779955929',
-                  );
-                  await launchUrl(smsLaunchUri);
+                  Get.to(AskExperts());
+                  //  openWhatsapp(context: context, number: phone, text: "TEXT");
                 },
                 child: Container(
                   width: Get.width * 0.4,
@@ -162,8 +164,9 @@ class _FarmingPageState extends State<FarmingPage> {
                   ),
                   Mybutton(
                     text: "التقط صورة",
-                    function: () {
-                      getImage();
+                    function: () async {
+                      await getImage();
+                      Get.to(CornExample());
                     },
                     iconData: Icons.camera_alt_outlined,
                   ),
@@ -194,8 +197,9 @@ class _FarmingPageState extends State<FarmingPage> {
                   ),
                   Mybutton(
                     text: "التقط صورة",
-                    function: () {
-                      getImage();
+                    function: () async {
+                      await getImage();
+                      Get.to(TomatoExample());
                     },
                     iconData: Icons.camera_alt_outlined,
                   ),
@@ -237,7 +241,7 @@ class _FarmingPageState extends State<FarmingPage> {
     );
   }
 
-  void getImage() async {
+  Future getImage() async {
     final picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.camera);
   }

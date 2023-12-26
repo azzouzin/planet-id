@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plantid/Views/Compenants/constants.dart';
 import 'package:plantid/Views/Compenants/my_button.dart';
+import 'package:plantid/Views/Farm/info_page.dart';
 
 class StudyPage extends StatefulWidget {
   const StudyPage({super.key});
@@ -63,7 +64,9 @@ class _StudyPageState extends State<StudyPage> {
               ),
               Mybutton(
                 text: "عن التطبيق",
-                function: () {},
+                function: () {
+                  Get.to(InfoPage());
+                },
                 iconData: Icons.info,
               ),
             ],

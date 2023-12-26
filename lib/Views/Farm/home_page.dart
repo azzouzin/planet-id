@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:plantid/Controller/controller.dart';
 import 'package:plantid/Views/Compenants/constants.dart';
 import 'package:plantid/Views/Farm/farming_page.dart';
@@ -7,6 +8,7 @@ import 'package:plantid/Views/Farm/store_page.dart';
 import 'package:plantid/Views/Farm/study_page.dart';
 
 import '../Weather/homePage.dart';
+import 'tomato_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -25,15 +27,18 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: green,
         title: const Text(apptitle, style: TextStyle(color: Colors.white)),
         centerTitle: true,
+        actions: [
+          Image.asset("assets/logo.png", scale: 5),
+        ],
       ),
       body: GetBuilder<Controller>(builder: (controller) {
         return controller.index == 0
-            ? FarmingPage()
+            ? const FarmingPage()
             : controller.index == 2
-                ? StorePage()
+                ? const StorePage()
                 : controller.index == 3
                     ? HomePage()
-                    : StudyPage();
+                    : const StudyPage();
       }),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: index,
@@ -46,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           elevation: 10,
           unselectedItemColor: Colors.grey,
           selectedItemColor: green,
-          backgroundColor: Color.fromARGB(255, 216, 218, 216),
+          backgroundColor: const Color.fromARGB(255, 216, 218, 216),
           items: const [
             BottomNavigationBarItem(
                 icon: Icon(
@@ -65,7 +70,10 @@ class _MyHomePageState extends State<MyHomePage> {
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () async {
+          await getImage();
+          Get.to(const TomatoExample());
+        },
         shape: const CircleBorder(),
         tooltip: 'Increment',
         backgroundColor: green,
@@ -75,5 +83,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  Future getImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.camera);
   }
 }

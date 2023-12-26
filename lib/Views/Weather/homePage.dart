@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plantid/Views/Compenants/constants.dart';
+import 'package:plantid/Views/Farm/call_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'dataset.dart';
@@ -42,11 +43,7 @@ class CurrentWeather extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: green),
               onPressed: () async {
-                final Uri smsLaunchUri = Uri(
-                  scheme: 'tel',
-                  path: '+213 779955929',
-                );
-                await launchUrl(smsLaunchUri);
+                Get.to(AskExperts());
               },
               child: Text(
                 "اتصل بالاستشاري حالا ",
