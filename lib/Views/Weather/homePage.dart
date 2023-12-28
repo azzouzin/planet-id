@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -50,12 +52,26 @@ class CurrentWeather extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
             ),
+            verticalpadding,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: green),
+              onPressed: () async {
+                openWethear(context: context);
+              },
+              child: Text(
+                " حالة الطقس في موقعك الحالي",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
                   children: [
                     Text(
+
+
+                      
                       " " + currentTemp.location!,
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
@@ -92,6 +108,32 @@ class CurrentWeather extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void openWethear({
+    required BuildContext context,
+  }) async {
+    var whatsappURlAndroid = "https://openweathermap.org/";
+    var whatsappURLIos = "https://openweathermap.org/";
+    if (Platform.isIOS) {
+      // for iOS phone only
+      if (await canLaunchUrl(Uri.parse(whatsappURLIos))) {
+        await launchUrl(Uri.parse(
+          whatsappURLIos,
+        ));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("هناك مشكلة حاول لاحقا")));
+      }
+    } else {
+      // android , web
+      if (await canLaunchUrl(Uri.parse(whatsappURlAndroid))) {
+        await launchUrl(Uri.parse(whatsappURlAndroid));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("هناك مشكلة حاول لاحقا")));
+      }
+    }
   }
 }
 

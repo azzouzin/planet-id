@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plantid/Views/Compenants/constants.dart';
 import 'package:plantid/Views/Compenants/my_button.dart';
 import 'package:plantid/Views/Farm/info_page.dart';
 
@@ -19,7 +18,7 @@ class _StudyPageState extends State<StudyPage> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             "دراسة",
             style: TextStyle(
               fontSize: 30,
@@ -27,12 +26,12 @@ class _StudyPageState extends State<StudyPage> {
             ),
           ),
           SearchBar(
-            leading: Icon(Icons.search),
+            leading: const Icon(Icons.search),
             constraints: BoxConstraints(
               maxWidth: Get.width * 0.9,
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -53,7 +52,7 @@ class _StudyPageState extends State<StudyPage> {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -65,13 +64,13 @@ class _StudyPageState extends State<StudyPage> {
               Mybutton(
                 text: "عن التطبيق",
                 function: () {
-                  Get.to(InfoPage());
+                  Get.to(const InfoPage());
                 },
                 iconData: Icons.info,
               ),
             ],
           ),
-          SizedBox(height: 100),
+          const SizedBox(height: 100),
         ],
       ),
     );

@@ -1,21 +1,27 @@
+
+
 import 'package:flutter/material.dart';
 
 import 'dataset.dart';
 import 'extraWeather.dart';
 
 class DetailPage extends StatelessWidget {
+  const DetailPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff030317),
       body: Column(
-        children: [TomorrowWeather(), SevenDays()],
+        children: [const TomorrowWeather(), SevenDays()],
       ),
     );
   }
 }
 
 class TomorrowWeather extends StatelessWidget {
+  const TomorrowWeather({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -67,7 +73,7 @@ class TomorrowWeather extends StatelessWidget {
                   height: MediaQuery.of(context).size.width / 2.3,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(tomorrowTemp!.image!))),
+                          image: AssetImage(tomorrowTemp.image!))),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,7 +159,7 @@ class SevenDays extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Image(
-                            image: AssetImage(sevenDay[index]!.image!),
+                            image: AssetImage(sevenDay[index].image!),
                             width: 40,
                           ),
                           const SizedBox(width: 15),

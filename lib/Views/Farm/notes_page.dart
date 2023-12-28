@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
+import 'package:flutter/material.dart';
 import '../Compenants/constants.dart';
 
 class NotesPage extends StatelessWidget {
@@ -25,24 +23,24 @@ class NotesPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               "المذكرة اليومية",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             verticalpadding,
             noteItem(
-              Color(0xFFF6DEE2),
-              Color(0xFFCD3954),
+              const Color(0xFFF6DEE2),
+              const Color(0xFFCD3954),
             ),
             verticalpadding,
             noteItem(
-              Color(0xFFEFE9F7),
-              Color(0xFF6A3EA1),
+              const Color(0xFFEFE9F7),
+              const Color(0xFF6A3EA1),
             ),
             verticalpadding,
             noteItem(
-              Color(0xFFDAF6E4),
-              Color(0xFF60D889),
+              const Color(0xFFDAF6E4),
+              const Color(0xFF60D889),
             )
           ],
         ),

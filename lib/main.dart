@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:plantid/Views/Compenants/constants.dart';
 import 'package:plantid/Views/Farm/splash_screen.dart';
-
-import 'Views/Farm/home_page.dart';
 
 void main() {
   runApp(const MyApp());
